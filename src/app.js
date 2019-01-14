@@ -28,7 +28,6 @@ ReactDOM.render(<div>...loading</div>, document.getElementById("app"));
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
     store.dispatch(login(user.uid));
-    console.log(user.uid);
     store.dispatch(startSetVideos()).then(() => {
       renderApp();
       if (history.location.pathname === "/") {
